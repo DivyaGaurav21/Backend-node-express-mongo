@@ -1,0 +1,81 @@
+=================================================NODEJS EXPRESS MONGODOB ===============================================================
+
+[1]. what is Node js ?
+---------------------==->
+Node.js is an open-source, cross-platform, server-side runtime environment that allows developers to build
+ scalable and high-performance applications. It is built on Chrome's V8 JavaScript engine and written in C++.
+========================>
+[2]. what can Node.js Do ?
+------------------------>
+A). Nodejs can generate dynamic page content.
+    and it can create , open , read , write , delete , and close file on server.
+B)NOdejs can collect form data and it can add , delete , modify data in your database,
+========================>
+[3] . Diffrence between syncronous(blocking) code and asyncronous(non blocking) code?
+------------------------>
+      example of syncronous(blocking) code
+     const fs = require('fs')
+     const txt = fs.readFileSync('../nodejs.txt' , 'utf-8')
+     console.log(txt);
+      example of asyncronous(non-blocking code)
+      const fs = require('fs')
+     const txt = fs.readFileSync('../nodejs.txt' , 'utf-8' , (err ,data) => {
+        console.log(data)
+     })
+     by using callback function
+     console.log(txt);
+=========================>
+[4]. what is server ?
+------------------------->
+As by semantic meaning of server is to serve.
+It is a computer software that provides resources , data , service , program to other computer known as client.
+=========================>
+[5]. diffrence between HTTP and HTTPS ?
+------------------------->
+HTTP (Hypertext Transfer Protocol) and HTTPS (Hypertext Transfer Protocol Secure)
+are two protocols used for communication over the internet, particularly when accessing websites
+A)Security:
+HTTP: It operates over an unencrypted connection, meaning that the data transmitted between 
+ user's browser and the web server is not secured.
+HTTPS: It incorporates SSL/TLS (Secure Sockets Layer/Transport Layer Security) encryption, 
+providing a secure and encrypted connection between the user's browser and the web server.
+B)Authentication:
+HTTP: It does not provide any form of server authentication, while HTTPS provide a level of 
+authentication, confirming the identity of the website's server. 
+C)URL Format:
+HTTP: URLs begin with "http://" in the address bar of the browser.
+HTTPS: URLs begin with "https://" in the address bar of the browser.
+==========================>
+[5]. what is Express ?
+-------------------------->
+ Express.js is a popular web application framework for Node.js, designed for building web applications and APIs.
+  It provides a set of tools and utilities to handle various tasks related to web development, 
+  such as routing, handling HTTP requests and responses, managing middleware, and serving static files.
+  the main feature of express that it makes it easier to organise our application in to the mvc architecture.
+==========================>
+[6]. 
+
+=====================>
+1.how Node js it differ from traditional server-side languages like PHP or Java?
+1. What is Node.js, and how does it differ from traditional server-side languages like PHP or Java?
+2. How do you handle asynchronous operations in Node.js?
+3. What are callbacks in Node.js? How can you avoid callback hell?
+4. Explain the concept of the event loop in Node.js.
+5. What is the purpose of the `package.json` file in Node.js projects?
+6. How can you manage dependencies in Node.js?
+7. What is the significance of the `npm` (Node Package Manager) in the Node.js ecosystem?
+8. How do you handle errors in Node.js applications?
+9. What are streams in Node.js, and how do they help in efficient data processing?
+10. Explain the role of the `fs` module in Node.js and provide an example of reading from and writing to a file.
+11. What is Express.js, and how does it simplify the development of web applications with Node.js?
+12. How do you handle user authentication and sessions in Node.js applications?
+13. What is middleware in the context of Express.js? Give an example of how to use middleware in an Express application.
+14. How do you deploy Node.js applications in a production environment?
+15. Explain the concept of clustering in Node.js and its benefits.
+16. What is the purpose of the `child_process` module in Node.js, and when would you use it?
+17. How can you implement real-time functionality in Node.js applications?
+18. What are WebSockets, and how do they differ from traditional HTTP communication?
+19. How do you conduct unit testing in a Node.js application?
+20. What are some popular frameworks and libraries available for Node.js, and when would you use them?
+
+Remember that the depth of the questions can vary based on the candidate's level of experience, so tailor your questions accordingly. Additionally, it's essential to assess not only theoretical knowledge but also practical experience and problem-solving skills.
