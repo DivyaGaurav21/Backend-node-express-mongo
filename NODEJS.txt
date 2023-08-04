@@ -52,8 +52,158 @@ HTTPS: URLs begin with "https://" in the address bar of the browser.
   It provides a set of tools and utilities to handle various tasks related to web development, 
   such as routing, handling HTTP requests and responses, managing middleware, and serving static files.
   the main feature of express that it makes it easier to organise our application in to the mvc architecture.
+[6]. what is MVC Structure/architect in express ?
+-------------------------->
+MVC (Model-View-Controller) is a software architectural pattern commonly used in web development,
+ including Express.js applications. It helps in organizing the codebase and separating concerns into 
+ three main components: Model, View, and Controller. Here's a brief explanation of each component in 
+ the context of an Express.js application:
+Model:
+The Model represents the data and business logic of the application. It handles the interaction with
+ the database and defines the structure and behavior of the data. In an Express.js application, 
+ the Model is responsible for querying the database, performing CRUD operations, and validating data.
+View:
+The View is responsible for the presentation layer of the application. It deals with the user interface
+and rendering the data to the client's browser. In Express.js, the View is typically implemented using
+ a templating engine like EJS (Embedded JavaScript) or Pug (formerly Jade). These templating engines
+  allow you to dynamically generate HTML pages with data from the server.
+Controller:
+The Controller acts as an intermediary between the Model and the View. It handles incoming requests 
+from the client, processes the data using the Model, and then passes the results to the appropriate
+ View for rendering. In an Express.js application, the Controller defines the various routes and their
+corresponding callback functions that handle the HTTP requests and responses.
+
 ==========================>
-[6]. 
+[7].what is mongoose ?
+-------------------------->
+ Mongoose is an Object Data Modeling (ODM) library for MongoDB in Node.js. It provides a straightforward
+   and schema-based solution to interact with MongoDB databases. 
+   Mongoose makes it easier by providing a set of rules (schema) that define how the data should look. It's
+  like a blueprint for how the data should be organized. With this blueprint, you can create, read, update, 
+  and delete data easily using simple JavaScript commands.
+==========================>
+[8]. Explain Model and Schema define in mongoose(ODM)?
+-------------------------->
+Schema => In Mongoose, a "Schema" is a blueprint that defines the structure of documents in a MongoDB collection.
+ It acts as a template or a set of rules that determine the shape of data stored in the database. 
+ When you create a new document.The Schema defines the fields (also known as properties or keys) that each document 
+ can have and specifies the data types, default values, validation rules, and other options for each field.
+ -------------------------->
+ Model => In Mongoose, a "Model" is a constructor compiled from a Schema. It represents a specific collection in the
+  MongoDB database and provides an interface to interact with that collection. The Model allows you to create, read,
+  update, and delete documents in the associated MongoDB collection using JavaScript objects and methods provided by Mongoose.
+  ----Or-->
+ A model is like blueprint that is used to create document. like in js we create object in js by using class.
+A Mongoose model is a wrapper of the Mongoose schema. A Mongoose schema defines the document's properties, default values,
+ types of data, validators, etc. In contrast, a Mongoose model provides an interface for the database to create, query, update,
+  delete records, and so on.
+==============================>
+[9]. how many datatypes in mongodb ?
+------------------------------>
+ 1.String
+ 2.Number
+ 3.Boolean
+ 4.Object
+ 5.Array
+ 6.Date
+ 7.ObjectId
+ 8.Null
+ 9.Undefined
+===============================>
+[10]. write and explain important querymongoose function used for crud in mongoDB ?
+------------------------------->
+a) CREATE :  "Model.create()"
+ This function is used to create and insert new documents into the
+ MongoDB collection. It takes an object representing the data for the new document as
+  an argument and returns a Promise that resolves to the newly created document.
+  example
+  const newUser = {
+  name: 'John Doe',
+  email: 'john@example.com',
+  age: 30,
+};
+User.create(newUser)
+  .then((createdUser) => {
+    console.log(createdUser);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+------------>
+b)READ: "Model.find()/Model.find({querycondition})"
+ This function is used to retrieve multiple documents that match a query condition.
+ if there is no condition then it give all documents.
+ It returns a Query object that can be further chained with other query 
+ functions or executed using "".exec()""
+ example
+ // Find all users with age greater than or equal to 25
+User.find({ age: { $gte: 25 } })
+  .then((users) => {
+    console.log(users);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+  [---]. what is .exec() does ?
+  In Mongoose, the .exec() method is used to execute a Mongoose query and return a Promise that
+   resolves to the result of the query. It is typically used at the end of a query chain to actually 
+   trigger the database operation.
+   example
+   const query = Product.find({ inStock: true }).sort('price');
+
+// Executing the query using .exec()
+query.exec()
+  .then((products) => {
+    console.log(products);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+------------>
+c)READ:"Model.findOne()"
+ This function retrieves the first document that matches the query
+  condition. It returns a single document or null if no matching document is found.
+  example
+   User.findOne({ email: 'john@example.com' })
+  .then((user) => {
+    console.log(user);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+------------>
+d)UPDATE ONE/MANY :"Model.updateOne() / Model.updateMany()"
+ These functions update one or multiple documents thatmatch the query condition with the 
+ specified update data. updateOne() updates the first matching document, while updateMany()
+  updates all matching documents.
+  ---similar model.updateOne()---
+  If you want to update a document in Mongoose using its _id, you can use the
+   Model.findByIdAndUpdate() function. This function is specifically designed for updating
+    a document based on its _id.
+  example
+  // Update a user's age by email
+User.updateOne({ email: 'john@example.com' }, { age: 31 })
+  .then((result) => {
+    console.log(result); // { n: 1, nModified: 1, ok: 1 }
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+-------------->
+e)DELETE: "Model.deleteOne() / Model.deleteMany()"
+ These functions remove one or multiple documents that match the query condition.
+ example
+ // Delete a user by email
+User.deleteOne({ email: 'john@example.com' })
+  .then((result) => {
+    console.log(result); // { n: 1, deletedCount: 1, ok: 1 }
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+  ===============================>
+  [11]. 
+
 
 =====================>
 1.how Node js it differ from traditional server-side languages like PHP or Java?
