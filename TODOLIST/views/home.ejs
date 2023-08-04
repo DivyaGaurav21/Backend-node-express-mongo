@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <!-- linking css -->
+    <link rel="stylesheet" href="/css/home.css">
+     <!-- linking font awsome toolkitr -->
+     <script src="https://kit.fontawesome.com/74894dafb2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+      <!-- section for frontend page -->
+
+      <h1 id="app-heading">ToDo App</h1>
+
+      <section id="app_ui">
+
+      <!-- form to add new task  -->
+      <form action="/action/create-task" method="POST">
+             <!-- Div for description input -->
+             <div id="desc-div">
+                <label for="desc-input">Create your ToDo description : <i class="fa-brands fa-apple"></i></label>
+                <br>
+                <input type="text" name="description" id="desc-input" placeholder="Write a new ToDo?" required>
+            </div>
+           <!-- Div for taking cateogary as input  -->
+           <div id="type_date">
+            <div id="category-div" class="choose">
+                <label for="categ-ory" class="cateogary"> Category:<i class="fa-solid fa-eye"></i></label>
+                <select name="category" id="categ-ory" required>
+                    <option value="n/a"> Choose a category </option>
+                    <option value="Exercise">Exercise</option>
+                    <option value="work">Work</option>
+                    <option value="school">School</option>
+                    <option value="cleaning">Cleaning</option>
+                    <option value="study">Study</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div id="date-div" class="choose">
+                <div>
+                    <label for="date" class="cateogary">Date: <i class="fa-solid fa-calendar-days"></i></label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+            </div>
+        </div>
+
+    <!-- Contains Action Buttons (i.e: Add and Delete ) -->
+    <div id="action-buttons">
+       <!-- button to add a new task and sumbit form -->
+       <button id="add-button" type="submit"> 
+           <i class="fas fa-plus"></i>
+           <span>Add Task</span> 
+       </button>
+
+       <!-- button to delete all the selected tasks -->
+       <button id="delete-button" type="submit" form="tasks-list-form">
+           <i class="fas fa-trash-alt"></i>
+           <span>Delete Tasks</span>
+       </button>
+   </div>
+
+      </form>
+      </section>
+
+      <!-- 2nd section of ui  -->
+   <section id="db-storage">
+    <form action="/action/delete-task" method="post" id="tasks-list-form">
+        <% for(let i of todoList){%>
+            <div class="db-todo-container">
+                <div class="task">
+                    <input id="check" type="checkbox" name="id" value="<%= i._id %>" >
+                </div>
+                <div class="task-data">
+                    <p> <%= i.description %> </p>
+                </div>
+                    <div class="db_date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span> <%= i.date %> </span>
+                   </div>
+                <div class="btn">
+                    <button type="button" style="background-color :<%= color_list[i.category] %>">
+                        <%= i.category %></button>
+                </div> 
+            </div>
+        <%}%>
+    </form>
+   </section>
+
+</body>
+
+
+</html>
