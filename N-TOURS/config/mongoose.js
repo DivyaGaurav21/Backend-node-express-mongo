@@ -1,4 +1,8 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+
+const fs = require('fs');
+const Tour = require('../models/tourModel')
+
 const dotenv = require('dotenv');
 
 dotenv.config({ path: './config.env' });
@@ -19,5 +23,30 @@ db.once('open', () => {
     console.log('Succesfully !! Connected to the DataBase');
 })
 
+
+
+// const tours = fs.readFileSync(`${__dirname}/../dev-data/data/tours-simple.json` , 'utf-8');
+const tours = JSON.parse(fs.readFileSync(`${__dirname}/tours-simple.json`, 'utf-8'));
+
+const importData = async () => {
+    try {
+        await Tour.create(tours);
+        console.log("successfully data is imported from file")
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+//delete all data in document
+const deleteData = async () => {
+    try {
+        await Tour.deleteMany();
+        console.log("Deleted all data in document")
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+importData();
 
 module.exports = db;

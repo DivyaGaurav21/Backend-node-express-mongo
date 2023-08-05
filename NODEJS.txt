@@ -202,8 +202,35 @@ User.deleteOne({ email: 'john@example.com' })
     console.error(error);
   });
   ===============================>
-  [11]. 
+  [11]. what does app.use(express.urlencoded()); ?
+  ------------------------------->
+  When a client sends data to the server using the HTTP POST method with Content-Type: application/x-www-form-urlencoded header, 
+ the data is sent in the request body as a URL-encoded string. For example, data sent by an HTML form using the default form
+  submission method is typically URL-encoded.
 
+The express.urlencoded() middleware comes into play to parse and extract this URL-encoded data from the request body and make it
+ available in the req.body object of the subsequent route handlers.
+==================================>
+[12]. explain authentication ?
+---------------------------------->
+Authentication in Express is the process of verifying the identity of users or clients attempting to access certain resources or 
+routes in a web application. It ensures that only authenticated and authorized users can access protected parts of the application 
+while keeping sensitive data and functionalities secure.
+==================================>
+[13].explain authorization ?
+---------------------------------->
+Authorization is the process of determining what actions or resources a user or client is allowed to access or perform within
+ a web application or system. It controls access to different parts of the application based on the user's role, permissions,
+  or other attributes. Authorization ensures that only authenticated users with the appropriate privileges can access specific 
+  functionalities or sensitive information.
+==================================>
+[14].explain cookie ?
+---------------------------------->
+A cookie is a small piece of data stored on the user's device by a web browser while browsing a website. It is one of the methods 
+used to maintain state and store information about the user's interaction with the website. Cookies are commonly used for various 
+purposes, such as session management, user preferences, tracking, and authentication.
+===================================>
+[15].
 
 =====================>
 1.how Node js it differ from traditional server-side languages like PHP or Java?
